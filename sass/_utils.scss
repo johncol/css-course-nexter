@@ -1,0 +1,10 @@
+$directions: top, bottom, left, right;
+$properties: margin, padding;
+
+@each $property in $properties {
+  @each $direction in $directions {
+    .u-#{$property}-#{$direction}-small  { #{$property}-#{$direction}: 1rem !important; }
+    .u-#{$property}-#{$direction}-medium { #{$property}-#{$direction}: 2rem !important; }
+    .u-#{$property}-#{$direction}-large  { #{$property}-#{$direction}: 4rem !important; }
+  }
+}

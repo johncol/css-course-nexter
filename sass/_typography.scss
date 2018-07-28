@@ -3,16 +3,28 @@
   font-family: $font-display;
 }
 
+@mixin quoted {
+  &::before { content: '“'; }
+  &::after { content: '”'; }
+}
+
 .heading-1 {
   @extend %heading;
 }
 
 .heading-2 {
   @extend %heading;
+  @include quoted;
+  line-height: 1;
+  font-size: 4rem;
+  font-style: italic;
 }
 
 .heading-3 {
   @extend %heading;
+  color: $color-primary;
+  font-size: 1.8rem;
+  text-transform: uppercase;
 }
 
 .heading-4 {
@@ -33,4 +45,20 @@
 
 .heading-6 {
   @extend %heading;
+}
+
+.btn {
+  border: none;
+  border-radius: 0;
+  padding: 1.5rem 2.5rem;
+  background-color: $color-primary;
+  color: $color-grey-light-1;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
 }
