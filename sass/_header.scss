@@ -1,4 +1,54 @@
 .header {
   background-color: $color-grey-dark-1;
   grid-column: full-start/col-end 6;
+  background-image:
+    linear-gradient(rgba($color-secondary, 0.93), rgba($color-secondary, 0.93)),
+    url(./../img/back.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 8rem 8rem;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-rows: 1fr min-content 6rem 1fr;
+  grid-template-columns: max-content;
+  align-content: space-around;
+  justify-content: center;
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__seenon-text {
+    color: $color-grey-light-2;
+    font-size: 1.3rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  &__btn {
+    align-self: start;
+    justify-self: start;
+  }
+
+  &__seenon-logos {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__seenon-logo {
+    height: 2.5rem;
+    filter: brightness(0.7);
+  }
 }

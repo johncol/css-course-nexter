@@ -6,6 +6,7 @@ $bar-line-height: 3px;
   display: flex;
   justify-content: center;
   padding-top: 5rem;
+  position: relative;
 
   &:hover &__nav-btn {
     &,
@@ -16,6 +17,7 @@ $bar-line-height: 3px;
   }
 
   &__nav-btn {
+    position: fixed;
     border: none;
     border-radius: 0;
     transition: all 0.2s;
