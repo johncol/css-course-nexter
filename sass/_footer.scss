@@ -3,12 +3,16 @@
   grid-column: full-start/full-end;
   padding: 10rem 10rem 3rem;
   color: $color-grey-light-1;
+  
+  @include media-query-max-width($breakpoint-small) {
+    padding: 6rem 2rem 3rem;
+  }
 
   &__nav {
     list-style: none;
     padding: 0 5rem;
     display: grid;
-    grid-gap: 3rem;
+    grid-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     text-align: center;
   }

@@ -5,6 +5,14 @@
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 7rem;
 
+  @include media-query-max-width($breakpoint-small) {
+    padding: 6rem 5rem;
+  }
+
+  @include media-query-max-width($breakpoint-smallest) {
+    padding: 6rem 0;
+  }
+
   &__home {
     background-color: $color-grey-light-1;
     display: grid;

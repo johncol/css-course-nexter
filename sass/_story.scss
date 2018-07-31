@@ -2,10 +2,18 @@
   &__pictures {
     background-color: $color-primary;
     grid-column: full-start/col-end 4;
+    
+    @include media-query-max-width($breakpoint-large) {
+      grid-column: full-start/full-end;
+    }
   }
   &__content {
     background-color: $color-grey-light-1;
     grid-column: col-start 5/full-end;
+    
+    @include media-query-max-width($breakpoint-large) {
+      grid-column: full-start/full-end;
+    }
   }
 }
 
@@ -15,6 +23,19 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(5, 1fr);
     background-image: linear-gradient(to left, rgba($color-primary, 0.4), rgba($color-primary-dark, 0.4)), url(./../img/back.jpg);
+
+    @include media-query-max-width($breakpoint-large) {
+      grid-template-rows: repeat(1, 1fr);
+      padding: 5rem;
+    }
+
+    @include media-query-max-width($breakpoint-small) {
+      padding: 3rem;
+    }
+
+    @include media-query-max-width($breakpoint-smallest) {
+      padding: 2rem;
+    }
   }
 
   &__picture {
@@ -24,6 +45,11 @@
     &--1 {
       grid-row: 2/span 3;
       grid-column: 2/span 4;
+
+      @include media-query-max-width($breakpoint-large) {
+        grid-row: 2/span 1;
+        grid-column: 2/span 2;
+      }
     }
 
     &--2 {
@@ -31,6 +57,12 @@
       grid-column: 4/span 3;
       width: 125%;
       z-index: 10;
+
+      @include media-query-max-width($breakpoint-large) {
+        grid-row: 2/span 1;
+        grid-column: 4/span 2;
+        width: 100%;
+      }
     }
   }
 }
@@ -40,6 +72,14 @@
     padding: 10rem 15rem;
     display: grid;
     align-content: center;
+    
+    @include media-query-max-width($breakpoint-largest) {
+      padding: 9rem;
+    }
+    
+    @include media-query-max-width($breakpoint-large) {
+      padding: 6rem;
+    }
 
     .btn {
       justify-self: start;

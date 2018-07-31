@@ -14,6 +14,19 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// BREAKPOINTS
+$breakpoint-largest:  1200px;
+$breakpoint-large:    1100px;
+$breakpoint-medium:   900px;
+$breakpoint-small:    600px;
+$breakpoint-smallest: 500px;
+
+@mixin media-query-max-width($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -24,6 +37,14 @@ $font-display: 'Josefin Sans', sans-serif;
 
 html {
   font-size: 62.5%; // 10px = 1rem
+  
+  @include media-query-max-width($breakpoint-medium) {
+    font-size: 56.25%; // 9px = 1rem
+  }
+  
+  @include media-query-max-width($breakpoint-small) {
+    font-size: 50%; // 8px = 1rem
+  }
 }
 
 body {
@@ -35,6 +56,11 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: 80vh min-content min-content repeat(3, min-content);
+  grid-template-rows: 80vh;
   grid-template-columns: [sidebar-start] 10rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  
+  @include media-query-max-width($breakpoint-large) {
+    grid-template-rows: 5rem calc(70vh - 5rem);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  }
 }

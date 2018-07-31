@@ -9,10 +9,24 @@
   padding: 4rem 8rem 8rem;
   display: grid;
   grid-gap: 1.5rem;
-  grid-template-rows: 1fr min-content 6rem 1fr;
-  grid-template-columns: max-content;
+  grid-template-rows: 1fr min-content minmax(6rem, max-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
   align-content: space-around;
   justify-content: center;
+
+  @include media-query-max-width($breakpoint-large) {
+    grid-column: full-start/full-end;
+    grid-template-columns: 1fr;
+  }
+
+  @include media-query-max-width($breakpoint-small) {
+    padding: 4rem 6rem;
+  }
+
+  @include media-query-max-width($breakpoint-smallest) {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
 
   &__logo {
     height: 3rem;
@@ -45,10 +59,19 @@
   &__seenon-logos {
     display: flex;
     justify-content: space-around;
+
+    @include media-query-max-width($breakpoint-small) {
+      flex-wrap: wrap;
+    }
   }
 
   &__seenon-logo {
     height: 2.5rem;
     filter: brightness(0.7);
+
+    @include media-query-max-width($breakpoint-small) {
+      height: 2rem;
+      margin-bottom: 3rem;
+    }
   }
 }

@@ -7,6 +7,15 @@ $bar-line-height: 3px;
   justify-content: center;
   padding-top: 5rem;
   position: relative;
+  
+  @include media-query-max-width($breakpoint-large) {
+    grid-row: 1/1;
+    grid-column: 1/-1;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 2rem;
+    padding-right: 1.5rem;
+  }
 
   &:hover &__nav-btn {
     &,
@@ -21,6 +30,10 @@ $bar-line-height: 3px;
     border: none;
     border-radius: 0;
     transition: all 0.2s;
+
+    @include media-query-max-width($breakpoint-large) {
+      position: initial;
+    }
 
     &,
     &::before,
@@ -38,5 +51,10 @@ $bar-line-height: 3px;
 
     &::before { transform: translateY(-1.5rem); }
     &::after { transform: translateY(calc(-3rem - #{$bar-line-height})); }
+
+    @include media-query-max-width($breakpoint-large) {
+      &::before { transform: translateY(-1rem); }
+      &::after { transform: translateY(calc(-2rem - #{$bar-line-height})); }
+    }
   }
 }
